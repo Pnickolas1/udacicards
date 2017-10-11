@@ -72,7 +72,6 @@ class AddFlashcard extends Component {
                 <MaterialCommunityIcons name='inbox' size={150} />
 
                 <TextInput
-                style={}
                 placeholder='Question'
               />
               { this.state.questionError !== ''
@@ -91,7 +90,6 @@ class AddFlashcard extends Component {
                 
 
                 <TextInput
-                style={}
                 placeholder='Answer'
                 multiline={true}
                 onChangeText={text => this.setState({ answer: text })}
@@ -115,7 +113,7 @@ class AddFlashcard extends Component {
                 :
                 <TouchableOpacity
                     onPress={this.submitCardToDeck.bind(this)}
-                    style={}>
+                    >
                     <Text style={{ fontSize: 20, color: '#FFF' }}>Add Card</Text>
                 </TouchableOpacity>}
             </KeyboardAvoidingView>
