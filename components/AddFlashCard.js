@@ -85,7 +85,7 @@ class AddFlashcard extends Component {
                   <MaterialCommunityIcons
                     name='textbox'
                     size={20}
-                    color='#14c0ff' 
+                    color='#c70400' 
                   />
                   {this.state.questionError}
                 </Text>
@@ -106,9 +106,9 @@ class AddFlashcard extends Component {
                     style={styles.err}>
                     <MaterialCommunityIcons
                     name='close-circle-outline'
-                    size={20} color='#14c0ff'
+                    size={20} color='#c70400'
                     />
-                    {this.state.answerError}
+                     {this.state.answerError}
                 </Text>
                 :
                 <Text></Text> }
@@ -119,7 +119,13 @@ class AddFlashcard extends Component {
                 <TouchableOpacity
                     onPress={this.submitCardToDeck.bind(this)}
                     style={styles.addCardButton}>
-                    <Text style={{ fontSize: 20, color: '#FFF' }}>Add Flashcard</Text>
+
+                    <Text style={{ fontSize: 20, color: '#FFF' }}>
+                    <MaterialCommunityIcons
+                        name="plus"
+                        size={20}
+                        color="#FFF"
+                    />Add Flashcard</Text>
                 </TouchableOpacity>}
             </KeyboardAvoidingView>
     )
@@ -139,9 +145,9 @@ const styles = StyleSheet.create({
     },
     addCardButton: {
       width: 200,
-      backgroundColor: '#14c0ff',
+      backgroundColor: '#1c2841',
       borderWidth: 1,
-      borderColor: '#14c0ff',
+      borderColor: '#1c2841',
       borderRadius: 5,
       padding: 10,
       justifyContent: 'center',
@@ -149,7 +155,7 @@ const styles = StyleSheet.create({
       marginTop: 30
     },
     err: {
-      color: '#14c0ff',
+      color: '#c70400',
       fontSize: 20
     }
   })

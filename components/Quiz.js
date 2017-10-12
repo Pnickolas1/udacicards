@@ -32,6 +32,7 @@ class Quiz extends Component {
                         </Animated.Text>
 
                     <TouchableOpacity
+                        style={[{textAlign:'center'}, {color: "c70400"}]}
                         onPress={() => {
                             const { bounceValue } = this.state;
 
@@ -88,15 +89,15 @@ class Quiz extends Component {
                 <View style={styles.container}>
                     <Text style={styles.mainFontStyle}>Quiz Complete</Text>
                     <View style={styles.mainView}>
-                        <Text style={styles.scoreHeading}> Results: </Text>
+                        <Text style={styles.scoreHeading}> SCORE </Text>
                         <View>
                             <Text style={styles.score}>{Math.round((this.state.correctScore/  this.props.deck.questions.length) * 100 )} %</Text>
                         </View>
                         <Text style={{fontSize: 25, marginTop: 10}}>{ (this.state.correctScore / this.props.deck.questions.length) * 100 > 80 
                         ? 
-                        'Good Work!'
+                        '👏🏼 Good Work'
                         :
-                        'Review your notes! You can do better!'
+                        '👎🏼 You can do better!'
                         }</Text>
                     </View>
                     <View style={styles.buttonContainer}>
@@ -113,7 +114,7 @@ class Quiz extends Component {
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={styles.backToViewButton}>
-                            <Text style={{ fontSize: 20, color: '#00B300' }}>View Flashcards</Text>
+                            <Text style={{ fontSize: 20, color: '#c70400' }}>View Flashcards</Text>
                             </TouchableOpacity>
                     </View>
                 </View>
@@ -126,10 +127,12 @@ class Quiz extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    alignItems:  'center',
   },
   counterText: {
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'center'
   },
   mainView: {
     flex: 1,
@@ -152,7 +155,7 @@ const styles = StyleSheet.create({
   correctButton: {
     padding: 20,
     borderRadius: 5,
-    backgroundColor: '#00B300',
+    backgroundColor: '#1C2841',
     marginTop: 20,
     width: 200,
     justifyContent: 'center',
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   incorrectButton: {
     padding: 20,
     borderRadius: 5,
-    backgroundColor: '#F00',
+    backgroundColor: '#c70400',
     marginTop: 10,
     width: 200,
     justifyContent: 'center',
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
   backToViewButton: {
     padding: 20,
     borderRadius: 5,
-    borderColor: '#00B300',
+    borderColor: '#c70400',
     borderWidth: 1,
     marginTop: 20,
     width: 200,
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
   },
   score: {
     fontSize: 50,
-    color: '#FFF'
+    color: '#c70400'
   },
   buttonContainer: {
     marginTop: 20,
