@@ -113,7 +113,7 @@ class Quiz extends Component {
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={backToViewButton}>
-                            <Text style={{ fontSize: 20, color: '#00B300' }}>View Deck</Text>
+                            <Text style={{ fontSize: 20, color: '#00B300' }}>View Flashcards</Text>
                             </TouchableOpacity>
                         </View>
                         </View>

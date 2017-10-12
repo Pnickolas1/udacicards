@@ -12,7 +12,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
 
-
 class AddFlashcard extends Component {
 
     componentDidMount(){

@@ -13,6 +13,11 @@ import {
 
 class FlashcardDeckList extends Component{
 
+    componentDidMount() {
+      this.props.fetchDecks();
+    }
+
+
     render() {
         let decks = '';
         let decksData = '';
@@ -20,7 +25,7 @@ class FlashcardDeckList extends Component{
             decks = this.props.decks;
             decksData = Object.keys(decks).map((key) => {
                 return decks[key];
-            })
+            });
         }
 
         return (
@@ -40,7 +45,7 @@ class FlashcardDeckList extends Component{
                 /> : (
                     <View style={styles.subContainer}>
                       <MaterialCommunityIcons name='information-outline' size={200} color='#1485ff' />
-                      <Text style={styles.textStyle}>No Deck Available. Add a new Deck!</Text>
+                      <Text style={styles.textStyle}>Create Flashcards!</Text>
                     </View>
                   )}
             </View>

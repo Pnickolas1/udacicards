@@ -30,20 +30,20 @@ class FlashcardDeckView extends Component {
     deleteFlashcardDeck() {
         const { deck } = this.props
     
-    Alert.alert(
-        `Delete ${deck.title}`,
-        `please confirm you are about to delete ${deck.title}`,
-        [
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'Delete', onPress: () => {
+      Alert.alert(
+          `Delete: ${deck.title}`,
+          `Please confirm delete: "${deck.title}"`,
+          [
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+            {text: 'Delete', onPress: () => {
 
-            /// action create called to deleteDeck()
-          this.props.deleteDeck(deck.title);
-          this.props.navigation.goBack();
-        }},
-      ],
-      {cancelable: true}
-        )
+              /// action create called to deleteDeck()
+            this.props.deleteDeck(deck.title);
+            this.props.navigation.goBack();
+            }},
+          ],
+        {cancelable: true}
+      )
     }
     
     beginQuiz(){    
@@ -54,9 +54,9 @@ class FlashcardDeckView extends Component {
                 'Quiz',
                 {title: deck.title}
             )
-            } else if(deck.questions.length === 0 && Platform.OS !== 'ios') {
+          } else if(deck.questions.length === 0 && Platform.OS !== 'ios') {
             ToastAndroid.show('No Cards in this Deck', ToastAndroid.SHORT);
-            }
+        }
     }
 
     render() {
@@ -66,23 +66,23 @@ class FlashcardDeckView extends Component {
         return (
           <View style={{flex: 1}}>
             <View style={container}>
-              <MaterialCommunityIcons name='cards' size={300} color='#1485ff' />
-              <Text style={headerText}>{deck.title}</Text>
+              <MaterialCommunityIcons name='cards' size={100} color='#1485ff' />
+              <Text style={headerText}>Topic: {deck.title}</Text>
               <Text style={detailText}>{deck.questions ? `${deck.questions.length} Card(s)` : '0 Card'}</Text>
     
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate(
-                  'AddCard',
+                  'AddFlashcard',
                   {title: deck.title}
                 )}
-                style={addCardButton}>
+                style={styles.addCardButton}>
                 <Text style={{ fontSize: 20 }}>Add Card</Text>
               </TouchableOpacity>
     
               <TouchableOpacity
                 onPress={this.beginQuiz.bind(this)}
-                style={startQuizButton}>
-                <Text style={{ fontSize: 20, color: '#FFF' }}>Begin</Text>
+                style={styles.startQuizButton}>
+                <Text style={{ fontSize: 20, color: '#FFF' }}>Begin Quiz</Text>
               </TouchableOpacity>
             </View>
     

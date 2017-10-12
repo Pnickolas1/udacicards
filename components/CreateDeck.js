@@ -17,32 +17,33 @@ class CreateDeck extends Component{
     componentDidMount(){
         const title = this.state.deckTitle;
 
-    if(this.props.decks[title]){
-        this.props.navigation.navigate(
-            'FlashcardDeckView',
-            {title}
-        )
-        this.setState({ deckTitle: '', loading: false});
+        if(this.props.decks[title]){
+            this.props.navigation.navigate(
+                'FlashcardDeckView',
+                {title}
+            )
+            this.setState({ deckTitle: '', loading: false});
+        }
     }
-}
 
-state = {
-    deckTitle: '',
-    errorMessage: '',
-    loading: false
-}
+    //Setting the state within the component
 
-onSubmit(){
-    if(this.state.deckTitle !== ''){
-
-
-        // Send Title of Flashcard Deck action creator
-        this.props.sendDeckTitle(this.state.deckTitle);
-        this.setState({ errorMessage: '', loading: true})
-    } else {
-        this.setState({ errorMessage: 'Enter a Title!'})
+    state = {
+        deckTitle: '',
+        errorMessage: '',
+        loading: false
     }
-}
+
+    onSubmit(){
+        if(this.state.deckTitle !== ''){
+
+            // Send Title of Flashcard Deck action creator
+            this.props.sendDeckTitle(this.state.deckTitle);
+            this.setState({ errorMessage: '', loading: true})
+        } else {
+            this.setState({ errorMessage: 'Enter a quiz topic!'})
+        }
+    }
 
 render(){
 
@@ -51,12 +52,15 @@ render(){
                 behavior='padding'
                 style={styles.containerStyle}>
                 <MaterialCommunityIcons name="archive" size={125} />
-                <Text>Enter Title</Text>
+                <Text style={styles.headingText}>Enter Quiz Topic</Text>
 
                 <TextInput
                     style={[styles.inputStyle, {textAlign:'center'}]}
-                    placeholder='Enter Deck Title'
+                    placeholder='ex. React Native'
+
+                    // setting state on on change text value
                     onChangeText={(text) => this.setState({ deckTitle: text })}
+                    //value = this.state.deckTitle
                     value={this.state.deckTitle}
                 />
 
@@ -65,15 +69,15 @@ render(){
                 <Text
                     style={styles.err}>
                     <MaterialCommunityIcons
-                    name='theater'
-                    size={20}
-                />
+                        name='theater'
+                        size={20} color="#1485ff"
+                    />
                     {this.state.errorMessage}
                 </Text>
                 :
                 <Text></Text> }
-            {this.state.loading
-            ?
+                { this.state.loading
+                ?
                 <ActivityIndicator size="large" />
                 :
                 <TouchableOpacity
@@ -81,7 +85,7 @@ render(){
                         onPress={this.onSubmit.bind(this)}>
                         <Text style={styles.buttonText}>Submit</Text>
                     </TouchableOpacity>}
-                </KeyboardAvoidingView>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     headingText: {
-      fontSize: 60,
+      fontSize: 40,
       alignItems: 'center',
       textAlign: 'center'
     },
