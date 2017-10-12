@@ -100,10 +100,10 @@ class FlashcardDeckView extends Component {
               style={styles.deleteTopicButton}>
                 <Text style={{ fontSize: 20, color: '#FFF' }}>
                 <MaterialCommunityIcons
-                        name="close"
+                        name="delete-forever"
                         size={20}
                         color="#FFF"
-                    />Delete Topic</Text>
+                    /> Delete Topic</Text>
             </TouchableOpacity>
             </View>
           </View>

@@ -44,8 +44,8 @@ class FlashcardDeckList extends Component{
                   keyExtractor={(item, index) => index}
                 /> : (
                     <View style={styles.subContainer}>
-                      <MaterialCommunityIcons name='information-outline' size={200} color='#1C2841' />
-                      <Text style={styles.textStyle}>Create Flashcards!</Text>
+                      <MaterialCommunityIcons name='database-plus' size={200} color='#1C2841' />
+                      <Text style={styles.textStyle}>Create Topic</Text>
                     </View>
                   )}
             </View>

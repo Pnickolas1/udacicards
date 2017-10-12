@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity,Animate, Animated } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
@@ -10,7 +10,7 @@ class Quiz extends Component {
     state = {
         currentQuestion: 1,
         correctScore: 0,
-        currentlyViewing: 'Question',
+        currentlyViewing: 'See Question',
         bounceValue: new Animated.Value(1)
     }
 
@@ -21,11 +21,11 @@ class Quiz extends Component {
         if(this.state.currentQuestion <= this.props.deck.questions.length){
             return(
                 <View style={styles.container}>
-                    <Text style={styles.counterText}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} total questions</Text>
+                    <Text style={styles.counterText}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} </Text>
                 
                     <View style={styles.mainview}>
                         <Animated.Text style={[styles.mainFontStyle, { transform: [{ scale: bounceValue }] }]}>
-                            { this.state.currentlyViewing === 'Question'
+                            { this.state.currentlyViewing === 'See Question'
                             ? 
                             this.props.deck.questions[this.state.currentQuestion-1].question
                             :
@@ -33,30 +33,30 @@ class Quiz extends Component {
                         </Animated.Text>
 
                     <TouchableOpacity
-                        style={[{textAlign:'center'}, {color: "c70400"}]}
-                        onPress={() => {
+                            style={[{textAlign:'center'}, {color: "c70400"}]}
+                            onPress={() => {
                             const { bounceValue } = this.state;
 
-                            Animate.sequence([
+                            Animated.sequence([
                                 Animated.timing(bounceValue, { duration: 200, toValue: 1.10 }),
                                 Animated.spring(bounceValue, { toValue: 1, friction: 4 })
                             ]).start();
 
-                            this.state.currentlyViewing === 'Question'
+                            this.state.currentlyViewing === 'See Question'
                             ?
                             this.setState({
-                                currentlyViewing: 'Answer'
+                                currentlyViewing: 'See Answer'
                             })
                             :
                             this.setState({
-                                currentlyViewing: 'Question'
+                                currentlyViewing: 'See Question'
                             });
                         }}
                         style={styles.toggleButton}>
                         <Text style={styles.toggleButtonText}>
-                            { this.state.currentlyViewing === 'Question'
+                            { this.state.currentlyViewing === 'See Question'
                             ?
-                            'Answer': 'Question' }
+                            'See Answer': 'See Question' }
                         </Text>
                     </TouchableOpacity>
 
@@ -65,7 +65,7 @@ class Quiz extends Component {
                             this.setState({ 
                             currentQuestion: this.state.currentQuestion + 1,
                             correctScore: this.state.correctScore + 1,
-                            currentlyViewing: 'Question'
+                            currentlyViewing: 'See Question'
                             }))
                         }
                     style={styles.correctButton}>
