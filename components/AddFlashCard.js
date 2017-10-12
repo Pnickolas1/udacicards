@@ -70,7 +70,7 @@ class AddFlashcard extends Component {
     
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
-                <MaterialCommunityIcons name='inbox' size={150} color='#1485ff' />
+                <MaterialCommunityIcons name='inbox' size={150} color='#1C2841' />
 
                 <TextInput
                     style={[styles.inputStyle, {textAlign: 'center'}]}

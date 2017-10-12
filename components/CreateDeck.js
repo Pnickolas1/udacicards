@@ -70,7 +70,7 @@ render(){
                     style={styles.err}>
                     <MaterialCommunityIcons
                         name='theater'
-                        size={20} color="#1485ff"
+                        size={20} color="#1C2841"
                     />
                     {this.state.errorMessage}
                 </Text>
@@ -111,9 +111,9 @@ const styles = StyleSheet.create({
     buttonStyle: {
       padding: 10,
       width: 100,
-      backgroundColor: '#1485ff',
+      backgroundColor: '#1C2841',
       borderWidth: 1,
-      borderColor: '#1485ff',
+      borderColor: '#1C2841',
       marginTop: 5,
       borderRadius: 3
     },

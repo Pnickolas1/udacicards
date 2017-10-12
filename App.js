@@ -41,13 +41,13 @@ export default class App extends React.Component {
       FlashcardDeckList: {
         screen: FlashcardDeckList,
         navigationOptions: {
-          tabBarLabel: 'Flashcards'
+          tabBarLabel: 'Topics'
         }
       },
       CreateDeck: {
         screen: CreateDeck,
         navigationOptions: {
-          tabBarLabel: 'Create New Deck'
+          tabBarLabel: 'Create New Topic'
         }
       }
     });
@@ -55,7 +55,7 @@ export default class App extends React.Component {
     const navOptions = {
       headerTintColor: '#FFF',
       headerStyle: {
-        backgroundColor: '#1485ff'
+        backgroundColor: '#1C2841'
       }
     }
 
@@ -82,7 +82,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer, applyMiddleware(ReduxThunk))}>
         <View style={{flex: 1}}>
-          <CardStatusBar backgroundColor={'#14c0ff'} barStyle='light-content' />
+          <CardStatusBar backgroundColor={'#1C2841'} barStyle='light-content' />
           <MainNavigator />
         </View>
       </Provider>

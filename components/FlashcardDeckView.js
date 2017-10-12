@@ -65,10 +65,10 @@ class FlashcardDeckView extends Component {
     
         return (
           <View style={{flex: 1}}>
-            <View style={container}>
-              <MaterialCommunityIcons name='cards' size={100} color='#1485ff' />
-              <Text style={headerText}>Topic: {deck.title}</Text>
-              <Text style={detailText}>{deck.questions ? `${deck.questions.length} Card(s)` : '0 Card'}</Text>
+            <View style={styles.container}>
+              <MaterialCommunityIcons name='cards' size={100} color='#1C2841' />
+              <Text style={styles.headerText}>Topic: {deck.title}</Text>
+              <Text style={styles.detailText}>{deck.questions ? `${deck.questions.length} Card(s)` : '0 Card'}</Text>
     
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate(
@@ -84,11 +84,12 @@ class FlashcardDeckView extends Component {
                 style={styles.startQuizButton}>
                 <Text style={{ fontSize: 20, color: '#FFF' }}>Begin Quiz</Text>
               </TouchableOpacity>
-            </View>
     
-            <TouchableOpacity onPress={this.deleteFlashcardDeck.bind(this)}>
-              <MaterialCommunityIcons name='delete' color='#F00' size={50} />
+            <TouchableOpacity onPress={this.deleteFlashcardDeck.bind(this)}
+              style={styles.deleteTopicButton}>
+                <Text style={{ fontSize: 20, color: '#FFF' }}>Delete Topic</Text>
             </TouchableOpacity>
+            </View>
           </View>
         )
       }
@@ -103,16 +104,16 @@ class FlashcardDeckView extends Component {
           alignItems: 'center'
         },
         headerText: {
-          fontSize: 50,
+          fontSize: 30,
         },
         detailText: {
-          fontSize: 35,
+          fontSize: 25,
           color: '#BBB'
         },
         addCardButton: {
           width: 200,
           borderWidth: 1,
-          borderColor: '#1485ff',
+          borderColor: '#1C2841',
           borderRadius: 5,
           padding: 10,
           justifyContent: 'center',
@@ -121,7 +122,18 @@ class FlashcardDeckView extends Component {
         },
         startQuizButton: {
           width: 200,
-          backgroundColor: '#1485ff',
+          backgroundColor: '#1C2841',
+          borderWidth: 1,
+          borderColor: '#FFF',
+          borderRadius: 5,
+          padding: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 20
+        },        
+        deleteTopicButton: {
+          width: 200,
+          backgroundColor: '#c70400',
           borderWidth: 1,
           borderColor: '#FFF',
           borderRadius: 5,
