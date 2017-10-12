@@ -4,8 +4,10 @@ import {
     KeyboardAvoidingView,
     TextInput,
     TouchableOpacity,
+    StyleSheet,
     ActivityIndicator
 } from 'react-native';
+import { sendCardToDeck } from '../actions';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
@@ -18,11 +20,11 @@ class AddFlashcard extends Component {
 
         const question = this.props.deck.questions.filter((obj) => {
             return obj.question === this.state.question
-        }).map(quetion => { return answer });
+        }).map(question => { return answer });
 
         if(question.length > 0 ) {
             this.props.navigation.navigate(
-                'DeckView',
+                'FlashcardDeckView',
                 {title}
             )
             this.setState({ question:'', answer:'', loading:false})
@@ -46,7 +48,7 @@ class AddFlashcard extends Component {
         //calling actions creator below (actions creators >> reducers >> update state)
     
         if(question !== '' & answer !== ''){
-            this.props.addCardToDeck(title, {question, answer});
+            this.props.sendCardToDeck(title, {question, answer});
             this.setState({ questionError: '', answerError: '', loading: true})
         }
 
@@ -77,11 +79,11 @@ class AddFlashcard extends Component {
               { this.state.questionError !== ''
                 ?
                 <Text
-                  style={err}>
+                  style={styles.err}>
                   <MaterialCommunityIcons
                     name='textbox'
                     size={20}
-                    color='#F00' 
+                    color='#14c0ff' 
                   />
                   {this.state.questionError}
                 </Text>
@@ -98,10 +100,10 @@ class AddFlashcard extends Component {
                 { this.state.answerError !== ''
                 ?
                 <Text
-                    style={err}>
+                    style={styles.err}>
                     <MaterialCommunityIcons
                     name='close-circle-outline'
-                    size={20} color='#F00'
+                    size={20} color='#14c0ff'
                     />
                     {this.state.answerError}
                 </Text>
@@ -121,5 +123,40 @@ class AddFlashcard extends Component {
   }
 }
 
-
-export default AddFlashcard
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    inputStyle: {
+      width: 400,
+      height: 80,
+      fontSize: 30
+    },
+    addCardButton: {
+      width: 200,
+      backgroundColor: '#14c0ff',
+      borderWidth: 1,
+      borderColor: '#14c0ff',
+      borderRadius: 5,
+      padding: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 30
+    },
+    err: {
+      color: '#14c0ff',
+      fontSize: 20
+    }
+  })
+  
+  function mapStateToProps(state, { navigation }) {
+    const { title } = navigation.state.params;
+  
+    return {
+      deck: state[title]
+    }
+  }
+  
+export default connect(mapStateToProps, { sendCardToDeck })(AddFlashcard);
