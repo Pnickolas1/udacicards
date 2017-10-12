@@ -68,7 +68,7 @@ class FlashcardDeckView extends Component {
             <View style={styles.container}>
               <MaterialCommunityIcons name='cube-outline' size={100} color='#1C2841' />
               <Text style={styles.headerText}>Topic: {deck.title}</Text>
-              <Text style={styles.detailText}>{deck.questions ? `${deck.questions.length} Card(s)` : '0 Card'}</Text>
+              <Text style={styles.detailText}>Flashcards: {deck.questions.length}</Text>
     
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate(
