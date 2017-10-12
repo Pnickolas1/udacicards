@@ -38,7 +38,7 @@ class Quiz extends Component {
                             const { bounceValue } = this.state;
 
                             Animated.sequence([
-                                Animated.timing(bounceValue, { duration: 200, toValue: 1.10 }),
+                                Animated.timing(bounceValue, { duration: 300, toValue: 1.50 }),
                                 Animated.spring(bounceValue, { toValue: 1, friction: 4 })
                             ]).start();
 
@@ -81,7 +81,7 @@ class Quiz extends Component {
                         onPress={() => (
                             this.setState({
                             currentQuestion: this.state.currentQuestion + 1,
-                            currentlyViewing: 'Question'
+                            currentlyViewing: 'See Question'
                             })
                         )}
                             style={styles.incorrectButton}>
@@ -98,7 +98,7 @@ class Quiz extends Component {
         } else {
             return(
                 <View style={styles.container}>
-                    <Text style={styles.mainFontStyle}>Quiz Complete</Text>
+                    <Text style={styles.mainFontStyle}>Complete</Text>
                     <View style={styles.mainView}>
                         <Text style={styles.scoreHeading}> SCORE </Text>
                         <View>
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems:  'center',
+    justifyContent: 'center',
   },
   counterText: {
     fontSize: 20,
