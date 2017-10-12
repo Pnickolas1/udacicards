@@ -19,7 +19,7 @@ class CreateDeck extends Component{
 
     if(this.props.decks[title]){
         this.props.navigation.navigate(
-            'DeckView',
+            'FlashcardDeckView',
             {title}
         )
         this.setState({ deckTitle: '', loading: false});
@@ -40,7 +40,7 @@ onSubmit(){
         this.props.sendDeckTitle(this.state.deckTitle);
         this.setState({ errorMessage: '', loading: true})
     } else {
-        this.setState({ errorMessage: 'Please create a name fore the new deck of flashcards'})
+        this.setState({ errorMessage: 'Enter a Title!'})
     }
 }
 
@@ -65,7 +65,7 @@ render(){
                 <Text
                     style={styles.err}>
                     <MaterialCommunityIcons
-                    name='browser'
+                    name='theater'
                     size={20}
                 />
                     {this.state.errorMessage}

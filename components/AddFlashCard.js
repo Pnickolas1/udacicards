@@ -42,7 +42,7 @@ class AddFlashcard extends Component {
 
     submitCardToDeck(){
         const { question, answer } = this.state;
-        const { title } = this.props.navigation.state.params
+        const { title } = this.props.navigation.state.params;
 
 
         //calling actions creator below (actions creators >> reducers >> update state)
@@ -70,12 +70,15 @@ class AddFlashcard extends Component {
     render() {
     
         return (
-            <KeyboardAvoidingView behavior='padding'>
-                <MaterialCommunityIcons name='inbox' size={150} />
+            <KeyboardAvoidingView behavior='padding' style={styles.container}>
+                <MaterialCommunityIcons name='inbox' size={150} color='#1485ff' />
 
                 <TextInput
-                placeholder='Question'
-              />
+                    style={styles.inputStyle}
+                    placeholder='Enter Question'
+                    onChangeText={text => this.setState({ question: text })}
+                    value={this.state.question}
+                />
               { this.state.questionError !== ''
                 ?
                 <Text
@@ -92,11 +95,12 @@ class AddFlashcard extends Component {
                 
 
                 <TextInput
-                placeholder='Answer'
-                multiline={true}
-                onChangeText={text => this.setState({ answer: text })}
-                value={this.state.answer}
-                />
+                    style={styles.inputStyle}
+                    placeholder='Answer'
+                    multiline={true}
+                    onChangeText={text => this.setState({ answer: text })}
+                    value={this.state.answer}
+                    />
                 { this.state.answerError !== ''
                 ?
                 <Text
@@ -115,7 +119,7 @@ class AddFlashcard extends Component {
                 :
                 <TouchableOpacity
                     onPress={this.submitCardToDeck.bind(this)}
-                    >
+                    style={styles.addCardButton}>
                     <Text style={{ fontSize: 20, color: '#FFF' }}>Add Card</Text>
                 </TouchableOpacity>}
             </KeyboardAvoidingView>
