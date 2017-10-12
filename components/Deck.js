@@ -12,7 +12,7 @@ export default class Deck extends Component {
     const { bounceValue } = this.state;
 
     Animated.sequence([
-      Animated.timing(bounceValue, { duration: 200, toValue: 1.10 }),
+      Animated.timing(bounceValue, { duration: 100, toValue: 1.10 }),
       Animated.spring(bounceValue, { toValue: 1, friction: 4 })
     ]).start();
 
@@ -30,7 +30,7 @@ export default class Deck extends Component {
       <TouchableOpacity
         onPress={this.onPress.bind(this)}>
         <Animated.View style={[styles.containerStyle, { transform: [{ scale: bounceValue}] }]}>
-          <Text style={styles.titleStyle}>{this.props.title}</Text>
+          <Text style={[styles.titleStyle, {color: "#FFF"}]}>{this.props.title}</Text>
           <Text style={styles.cardNumberDesc}>{`${this.props.cardNumber} card(s)`}</Text>
         </Animated.View>
       </TouchableOpacity>
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 20,
-    height: 150,
+    backgroundColor: "#1c2841",
+    height: 75,
     shadowRadius: 6,
     shadowOpacity: 1,
     shadowColor: 'rgba(0,0,0,24)',
@@ -57,10 +58,10 @@ const styles = StyleSheet.create({
     }
   },
   titleStyle: {
-    fontSize: 30
+    fontSize: 25
   },
   cardNumberDesc: {
-    fontSize: 20,
+    fontSize: 15,
     color: '#BBB'
   }
 });

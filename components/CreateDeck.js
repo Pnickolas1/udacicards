@@ -51,8 +51,8 @@ render(){
             <KeyboardAvoidingView
                 behavior='padding'
                 style={styles.containerStyle}>
-                <MaterialCommunityIcons name="archive" size={125} />
-                <Text style={styles.headingText}>Enter Quiz Topic</Text>
+                <MaterialCommunityIcons name="console" color="#1C2841" size={125} />
+                <Text style={styles.headingText}>Enter Topic</Text>
 
                 <TextInput
                     style={[styles.inputStyle, {textAlign:'center'}]}
@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     headingText: {
       fontSize: 40,
       alignItems: 'center',
-      textAlign: 'center'
+      textAlign: 'center',
+      color: '#1C2841',
     },
     inputStyle: {
       width: 400,

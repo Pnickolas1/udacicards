@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 
@@ -68,7 +69,12 @@ class Quiz extends Component {
                             }))
                         }
                     style={styles.correctButton}>
-                    <Text style={styles.buttonText}>Correct</Text>
+                    <Text style={styles.buttonText}>
+                    <MaterialCommunityIcons
+                        name="thumb-up-outline"
+                        size={20}
+                        color="#FFF"
+                    />  Correct</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -79,7 +85,12 @@ class Quiz extends Component {
                             })
                         )}
                             style={styles.incorrectButton}>
-                        <Text style={styles.buttonText}>Incorrect</Text>
+                        <Text style={styles.buttonText}>
+                        <MaterialCommunityIcons
+                        name="thumb-down-outline"
+                        size={20}
+                        color="#FFF"
+                    />  Incorrect</Text>
                     </TouchableOpacity>
                     </View>
                 </View>

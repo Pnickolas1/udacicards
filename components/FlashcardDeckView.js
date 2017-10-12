@@ -66,7 +66,7 @@ class FlashcardDeckView extends Component {
         return (
           <View style={{flex: 1}}>
             <View style={styles.container}>
-              <MaterialCommunityIcons name='cards' size={100} color='#1C2841' />
+              <MaterialCommunityIcons name='cube-outline' size={100} color='#1C2841' />
               <Text style={styles.headerText}>Topic: {deck.title}</Text>
               <Text style={styles.detailText}>{deck.questions ? `${deck.questions.length} Card(s)` : '0 Card'}</Text>
     
@@ -76,18 +76,34 @@ class FlashcardDeckView extends Component {
                   {title: deck.title}
                 )}
                 style={styles.addCardButton}>
-                <Text style={{ fontSize: 20 }}>Add Card</Text>
+                <Text style={{ fontSize: 20 }}>
+                <MaterialCommunityIcons
+                        name="plus"
+                        size={20}
+                        color="#1C2841"
+                    />Add Card</Text>
               </TouchableOpacity>
     
               <TouchableOpacity
                 onPress={this.beginQuiz.bind(this)}
                 style={styles.startQuizButton}>
-                <Text style={{ fontSize: 20, color: '#FFF' }}>Begin Quiz</Text>
+
+                <Text style={{ fontSize: 20, color: '#FFF' }}>
+                <MaterialCommunityIcons
+                        name="arrow-right-thick"
+                        size={20}
+                        color="#FFF"
+                    /> Begin Quiz</Text>
               </TouchableOpacity>
     
             <TouchableOpacity onPress={this.deleteFlashcardDeck.bind(this)}
               style={styles.deleteTopicButton}>
-                <Text style={{ fontSize: 20, color: '#FFF' }}>Delete Topic</Text>
+                <Text style={{ fontSize: 20, color: '#FFF' }}>
+                <MaterialCommunityIcons
+                        name="close"
+                        size={20}
+                        color="#FFF"
+                    />Delete Topic</Text>
             </TouchableOpacity>
             </View>
           </View>
