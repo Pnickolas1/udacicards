@@ -19,7 +19,7 @@ import FlashcardDeckView from './components/FlashcardDeckView';
 import AddFlashcard from './components/AddFlashCard';
 import Quiz from './components/Quiz';
 import { setLocalNotification } from './utils/helpers';
-
+import { MaterialCommunityIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
 
 function CardStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -41,14 +41,16 @@ export default class App extends React.Component {
       FlashcardDeckList: {
         screen: FlashcardDeckList,
         navigationOptions: {
-          tabBarLabel: 'Topics'
-        }
+          tabBarLabel: 'Topics',
+          tabBarIcon: ({ tintColor }) => <Ionicons name='ios-albums' size={25} color={tintColor} />
+        },
       },
       CreateDeck: {
         screen: CreateDeck,
         navigationOptions: {
-          tabBarLabel: 'Create New Topic'
-        }
+          tabBarLabel: 'Create New Topic',
+          tabBarIcon: ({ tintColor }) => <FontAwesome name='plus' size={25} color={tintColor} />
+        },
       }
     });
 
@@ -62,7 +64,7 @@ export default class App extends React.Component {
     const MainNavigator = StackNavigator({
       Home: {
         screen: Tabs,
-        navigationOptions: { ...navOptions, title: 'FlashCards' }
+        navigationOptions: { ...navOptions, title: 'Udacity Flashcards' }
       },
       FlashcardDeckView: {
         screen: FlashcardDeckView,
