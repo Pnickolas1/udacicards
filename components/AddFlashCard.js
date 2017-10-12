@@ -73,7 +73,7 @@ class AddFlashcard extends Component {
                 <MaterialCommunityIcons name='inbox' size={150} color='#1485ff' />
 
                 <TextInput
-                    style={styles.inputStyle}
+                    style={[styles.inputStyle, {textAlign: 'center'}]}
                     placeholder='Enter Question'
                     onChangeText={text => this.setState({ question: text })}
                     value={this.state.question}
@@ -94,7 +94,7 @@ class AddFlashcard extends Component {
                 
 
                 <TextInput
-                    style={styles.inputStyle}
+                    style={[styles.inputStyle, {textAlign: 'center'}]}
                     placeholder='Answer'
                     multiline={true}
                     onChangeText={text => this.setState({ answer: text })}
@@ -119,7 +119,7 @@ class AddFlashcard extends Component {
                 <TouchableOpacity
                     onPress={this.submitCardToDeck.bind(this)}
                     style={styles.addCardButton}>
-                    <Text style={{ fontSize: 20, color: '#FFF' }}>Add Card</Text>
+                    <Text style={{ fontSize: 20, color: '#FFF' }}>Add Flashcard</Text>
                 </TouchableOpacity>}
             </KeyboardAvoidingView>
     )
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     inputStyle: {
       width: 400,
       height: 80,
-      fontSize: 30
+      fontSize: 25
     },
     addCardButton: {
       width: 200,

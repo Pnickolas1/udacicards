@@ -19,14 +19,14 @@ class Quiz extends Component {
     
         if(this.state.currentQuestion <= this.props.deck.questions.length){
             return(
-                <View style={container}>
+                <View style={styles.container}>
                     <Text style={styles.counterText}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} total questions</Text>
                 
                     <View style={styles.mainview}>
-                        <Animated.Text style={[mainFontStyle, { transform: [{ scale: bounceValue }] }]}>
+                        <Animated.Text style={[styles.mainFontStyle, { transform: [{ scale: bounceValue }] }]}>
                             { this.state.currentlyViewing === 'Question'
                             ? 
-                            this.props.decks.questions[this.state.currentQuestion-1].question
+                            this.props.deck.questions[this.state.currentQuestion-1].question
                             :
                             this.props.deck.questions[this.state.currentQuestion-1].answer}
                         </Animated.Text>
@@ -77,8 +77,8 @@ class Quiz extends Component {
                             currentlyViewing: 'Question'
                             })
                         )}
-                        style={incorrectButton}>
-                        <Text style={buttonText}>Incorrect</Text>
+                            style={styles.incorrectButton}>
+                        <Text style={styles.buttonText}>Incorrect</Text>
                     </TouchableOpacity>
                     </View>
                 </View>
@@ -89,7 +89,7 @@ class Quiz extends Component {
                     <Text style={styles.mainFontStyle}>Quiz Complete</Text>
                     <View style={styles.mainView}>
                         <Text style={styles.scoreHeading}> Results: </Text>
-                        <View style={styles.circle}>
+                        <View>
                             <Text style={styles.score}>{Math.round((this.state.correctScore/  this.props.deck.questions.length) * 100 )} %</Text>
                         </View>
                         <Text style={{fontSize: 25, marginTop: 10}}>{ (this.state.correctScore / this.props.deck.questions.length) * 100 > 80 
@@ -99,7 +99,7 @@ class Quiz extends Component {
                         'Review your notes! You can do better!'
                         }</Text>
                     </View>
-                <View style={styles.buttonContainer}>
+                    <View style={styles.buttonContainer}>
                         <TouchableOpacity
                             onPress={() => {
                                 this.setState({
@@ -112,11 +112,11 @@ class Quiz extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
-                            style={backToViewButton}>
+                            style={styles.backToViewButton}>
                             <Text style={{ fontSize: 20, color: '#00B300' }}>View Flashcards</Text>
                             </TouchableOpacity>
-                        </View>
-                        </View>
+                    </View>
+                </View>
             )
         }
     }
@@ -194,15 +194,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  circle: {
-    width: 200,
-    height: 200,
-    borderRadius: 200/2,
-    marginTop: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00B300'
-  }
 });
 
 
