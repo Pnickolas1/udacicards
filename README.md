@@ -6,7 +6,8 @@
 
 # React Native & Expo
 - Expo Development 
-This repo was developed utilizing Expo development tools for React Native. See link below. To run app you will need to 
+This repo was developed utilizing Expo development tools for React Native. See link below. To run app you will need to install CLI tools: 
+
 https://expo.io/
 
 - This project was developed and tested for iOS platform 
