@@ -31,7 +31,7 @@ export default class Deck extends Component {
         onPress={this.onPress.bind(this)}>
         <Animated.View style={[styles.containerStyle, { transform: [{ scale: bounceValue}] }]}>
           <Text style={[styles.titleStyle, {color: "#FFF"}]}>{this.props.title}</Text>
-          <Text style={styles.cardNumberDesc}>{`${this.props.cardNumber} Question(s)`}</Text>
+          <Text style={styles.cardNumberDesc}>{`${this.props.cardNumber} Flashcard(s)`}</Text>
         </Animated.View>
       </TouchableOpacity>
     )
