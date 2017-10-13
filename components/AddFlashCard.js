@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 
 class AddFlashcard extends Component {
 
-    componentDidMount(){
+    componentDidUpdate(){
         const {title} = this.props.navigation.state.params;
 
         const question = this.props.deck.questions.filter((obj) => {
