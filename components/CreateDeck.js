@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { sendDeckTitle } from '../actions';
 
 class CreateDeck extends Component{
-    componentDidMount(){
+    componentDidUpdate(){
         const title = this.state.deckTitle;
 
         if(this.props.decks[title]){
@@ -34,7 +34,7 @@ class CreateDeck extends Component{
         loading: false
     }
 
-    onSubmit(){
+    onSubmit() {
         if(this.state.deckTitle !== ''){
 
             // Send Title of Flashcard Deck action creator
@@ -45,9 +45,9 @@ class CreateDeck extends Component{
         }
     }
 
-render(){
+render() {
 
-        return(
+        return (
             <KeyboardAvoidingView
                 behavior='padding'
                 style={styles.containerStyle}>
@@ -78,13 +78,13 @@ render(){
                 <Text></Text> }
                 { this.state.loading
                 ?
-                <ActivityIndicator size="large" />
+                <ActivityIndicator size="small" />
                 :
                 <TouchableOpacity
-                        style={styles.buttonStyle}
-                        onPress={this.onSubmit.bind(this)}>
-                        <Text style={styles.buttonText}>Submit</Text>
-                    </TouchableOpacity>}
+                    style={styles.buttonStyle}
+                    onPress={this.onSubmit.bind(this)}>
+                <Text style={styles.buttonText}>Submit</Text>
+                </TouchableOpacity>}
             </KeyboardAvoidingView>
         )
     }

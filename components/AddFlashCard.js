@@ -19,7 +19,7 @@ class AddFlashcard extends Component {
 
         const question = this.props.deck.questions.filter((obj) => {
             return obj.question === this.state.question
-        }).map(question => { return answer });
+        }).map(question => { return question });
 
         if(question.length > 0 ) {
             this.props.navigation.navigate(
@@ -70,7 +70,22 @@ class AddFlashcard extends Component {
     
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
-                <MaterialCommunityIcons name='inbox' size={150} color='#1C2841' />
+                { this.state.loading
+                ?
+                <ActivityIndicator size='large' />
+                :
+                <TouchableOpacity
+                    onPress={this.submitCardToDeck.bind(this)}
+                    style={styles.addCardButton}>
+
+                    <Text style={{ fontSize: 20, color: '#FFF' }}>
+                    <MaterialCommunityIcons
+                        name="plus"
+                        size={20}
+                        color="#FFF"
+                    />Add Flashcard</Text>
+                </TouchableOpacity>}
+                <MaterialCommunityIcons name='inbox' size={100} color='#1C2841' />
 
                 <TextInput
                     style={[styles.inputStyle, {textAlign: 'center'}]}
@@ -112,21 +127,6 @@ class AddFlashcard extends Component {
                 </Text>
                 :
                 <Text></Text> }
-                { this.state.loading
-                ?
-                <ActivityIndicator size='large' />
-                :
-                <TouchableOpacity
-                    onPress={this.submitCardToDeck.bind(this)}
-                    style={styles.addCardButton}>
-
-                    <Text style={{ fontSize: 20, color: '#FFF' }}>
-                    <MaterialCommunityIcons
-                        name="plus"
-                        size={20}
-                        color="#FFF"
-                    />Add Flashcard</Text>
-                </TouchableOpacity>}
             </KeyboardAvoidingView>
     )
   }
