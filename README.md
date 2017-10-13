@@ -1,5 +1,6 @@
-## Part of Udacity React JS Nanodegree
+
 # React Native
+## Part of Udacity React JS Nanodegree
  - Description: 
   A React Native application tested and developed primarily for iOS. App allows users to create topics and flashcards. Users can also go through a "Quiz" to test themselves on flashcards. 
 
@@ -10,10 +11,6 @@ https://expo.io/
 
 - This project was developed and tested for iOS platform 
 
-
-
 # Installation
 1. Clone this repo and CD into project directory and run `npm install`
 2. run `npm start`
-
-# How to run
