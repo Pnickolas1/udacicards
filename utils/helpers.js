@@ -1,8 +1,8 @@
 import { AsyncStorage } from 'react-native';;
 import { Notifications, Permissions } from 'expo';
 
-const NOTIFICATION_KEY = 'flashCards:notification';
-const CARD_STORAGE_KEY = 'flashCards:key';
+const NOTIFICATION_KEY = 'udacicards:notification';
+const CARD_STORAGE_KEY = 'udacicards:key';
 
 export function getDecks() {
   return AsyncStorage.getItem(CARD_STORAGE_KEY, (err, result) => {

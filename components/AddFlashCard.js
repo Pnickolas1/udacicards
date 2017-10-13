@@ -52,14 +52,14 @@ class AddFlashcard extends Component {
         }
 
         if(question == ''){
-            this.setState({questionError: "Please enter a question"})
+            this.setState({questionError: " Enter a question"})
 
         } else {
           this.setState({ questionError: ''})  
         }
 
         if(answer === ''){
-            this.setState({ answerError: "Please enter an answer"})
+            this.setState({ answerError: " Enter an answer"})
         } else {
             this.setState({ answerError: ''})
         }
