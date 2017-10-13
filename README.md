@@ -13,5 +13,5 @@ https://expo.io/
 * This project was developed and tested for iOS platform 
 
 # Installation
-1. Clone this repo and CD into project directory and run `npm install`
+1. Clone this repo and `cd` into project directory and run `npm install`
 2. run `npm start`
