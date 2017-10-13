@@ -19,6 +19,7 @@ class Quiz extends Component {
         const { bounceValue } = this.state;
     
         if(this.state.currentQuestion <= this.props.deck.questions.length){
+        
             return(
                 <View style={styles.container}>
                     <Text style={styles.counterText}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} </Text>
@@ -120,12 +121,22 @@ class Quiz extends Component {
                                 });
                             }}
                             style={styles.correctButton}>
-                            <Text style={styles.buttonText}>Redo Test</Text>
+                            <Text style={styles.buttonText}>
+                            <MaterialCommunityIcons
+                                name="rotate-3d"
+                                size={20}
+                                color="#FFF"
+                            /> Retake Quiz</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={styles.backToViewButton}>
-                            <Text style={{ fontSize: 20, color: '#c70400' }}>View Flashcards</Text>
+                            <Text style={{ fontSize: 20, color: '#c70400' }}>
+                            <MaterialCommunityIcons
+                                name="home-outline"
+                                size={20}
+                                color="#c70400"
+                            /> Topic Home</Text>
                             </TouchableOpacity>
                     </View>
                 </View>
@@ -134,7 +145,7 @@ class Quiz extends Component {
     }
 }
 
-
+//home-outline
 
 const styles = StyleSheet.create({
   container: {
@@ -216,8 +227,8 @@ function mapStateToProps(state, { navigation }) {
     const { title } = navigation.state.params;
   
     return {
-      deck: state[title]
+        deck: state[title]
     }
-  }
+}   
   
   export default connect(mapStateToProps)(Quiz);

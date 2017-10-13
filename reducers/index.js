@@ -3,6 +3,9 @@ import {
     SAVE_DECK_TITLE 
   } from '../actions';
   
+// reducer functionality 
+
+
   function decks(state = {}, action) {
     switch(action.type) {
       case GET_DECKS:
