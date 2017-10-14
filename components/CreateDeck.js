@@ -55,7 +55,7 @@ render() {
                 <Text style={styles.headingText}>Enter Topic</Text>
 
                 <TextInput
-                    style={[styles.inputStyle, {textAlign:'center'}]}
+                    style={[styles.inputStyles, {textAlign:'center'}]}
                     placeholder='ex. React Native'
 
                     // setting state on on change text value
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       color: '#1C2841',
     },
-    inputStyle: {
+    inputStyles: {
       width: 400,
       height: 80,
       fontSize: 30
