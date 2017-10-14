@@ -5,7 +5,7 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
-    ActivityIndicator
+    ActivityIndicator, View
 } from 'react-native';
 import { sendFlashcardToDeck } from '../actions';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -76,7 +76,7 @@ class AddFlashcard extends Component {
                 :
                 <TouchableOpacity
                     onPress={this.submitCardToDeck.bind(this)}
-                    style={styles.addCardButton}>
+                    style={styles.addFlashcardButton}>
 
                     <Text style={{ fontSize: 20, color: '#FFF' }}>
                     <MaterialCommunityIcons
@@ -87,46 +87,48 @@ class AddFlashcard extends Component {
                 </TouchableOpacity>}
                 <MaterialCommunityIcons name='inbox' size={100} color='#1C2841' />
 
-                <TextInput
-                    style={[styles.inputStyle, {textAlign: 'center'}]}
-                    placeholder='Enter Question'
-                    onChangeText={text => this.setState({ question: text })}
-                    value={this.state.question}
-                />
-              { this.state.questionError !== ''
-                ?
-                <Text
-                  style={styles.err}>
-                  <MaterialCommunityIcons
-                    name='textbox'
-                    size={20}
-                    color='#c70400' 
-                  />
-                  {this.state.questionError}
-                </Text>
-                :
-                <Text></Text> }
-                
-
-                <TextInput
-                    style={[styles.inputStyle, {textAlign: 'center'}]}
-                    placeholder='Answer'
-                    multiline={true}
-                    onChangeText={text => this.setState({ answer: text })}
-                    value={this.state.answer}
+                    <TextInput
+                        style={[styles.inputStyles, {textAlign: 'center'}]}
+                        placeholder='Enter Question'
+                        autoCapitalize = "words"
+                        onChangeText={text => this.setState({ question: text })}
+                        value={this.state.question}
                     />
-                { this.state.answerError !== ''
-                ?
-                <Text
+                    { this.state.questionError !== ''
+                    ?
+                    <Text
                     style={styles.err}>
                     <MaterialCommunityIcons
-                    name='close-circle-outline'
-                    size={20} color='#c70400'
+                        name='textbox'
+                        size={20}
+                        color='#c70400' 
                     />
-                     {this.state.answerError}
-                </Text>
-                :
-                <Text></Text> }
+                    {this.state.questionError}
+                    </Text>
+                    :
+                    <Text></Text> }
+                    
+
+                    <TextInput
+                        style={[styles.inputStyles, {textAlign: 'center'}]}
+                        placeholder='Answer'
+                        multiline={true}
+                        autoCapitalize = "words"
+                        onChangeText={text => this.setState({ answer: text })}
+                        value={this.state.answer}
+                        />
+                    { this.state.answerError !== ''
+                    ?
+                    <Text
+                        style={styles.error}>
+                        <MaterialCommunityIcons
+                        name='close-circle-outline'
+                        size={20} color='#c70400'
+                        />
+                        {this.state.answerError}
+                    </Text>
+                    :
+                    <Text></Text> }
             </KeyboardAvoidingView>
     )
   }
@@ -138,12 +140,18 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
-    inputStyle: {
+    inputMeta:{
+      marginLeft: .9,
+      marginRight: .9, 
+    },
+    inputStyles: {
       width: 400,
-      height: 80,
+      height: 60,
+      borderColor: '#1c2841',
+      borderWidth: 1,
       fontSize: 25
     },
-    addCardButton: {
+    addFlashcardButton: {
       width: 200,
       backgroundColor: '#1c2841',
       borderWidth: 1,
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginTop: 30
     },
-    err: {
+    error: {
       color: '#c70400',
       fontSize: 20
     }

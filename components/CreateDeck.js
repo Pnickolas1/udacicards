@@ -83,7 +83,7 @@ render() {
                 <TouchableOpacity
                     style={styles.buttonStyle}
                     onPress={this.onSubmit.bind(this)}>
-                <Text style={styles.buttonText}>Submit</Text>
+                <Text style={styles.buttonTextStyle}>Submit</Text>
                 </TouchableOpacity>}
             </KeyboardAvoidingView>
         )
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
       marginTop: 5,
       borderRadius: 3
     },
-    buttonText: {
+    buttonTextStyle: {
       color: '#FFF',
       fontSize: 20,
       textAlign: 'center'

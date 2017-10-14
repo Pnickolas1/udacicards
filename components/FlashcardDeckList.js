@@ -43,9 +43,9 @@ class FlashcardDeckList extends Component{
                   }
                   keyExtractor={(item, index) => index}
                 /> : (
-                    <View style={styles.subContainer}>
+                    <View style={styles.subclassContainer}>
                       <MaterialCommunityIcons name='database-plus' size={200} color='#1C2841' />
-                      <Text style={styles.textStyle}>Create Topic</Text>
+                      <Text style={styles.textStyles}>Create Topic</Text>
                     </View>
                   )}
             </View>
@@ -60,14 +60,14 @@ const styles = StyleSheet.create({
       flex: 1,
       padding: 10
     },
-    textStyle: {
+    textStyles: {
       fontSize: 30,
       textAlign: 'center',
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 100
     },
-    subContainer: {
+    subclassContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center'

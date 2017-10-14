@@ -30,8 +30,8 @@ export default class Deck extends Component {
       <TouchableOpacity
         onPress={this.onPress.bind(this)}>
         <Animated.View style={[styles.containerStyle, { transform: [{ scale: bounceValue}] }]}>
-          <Text style={[styles.titleStyle, {color: "#FFF"}]}>{this.props.title}</Text>
-          <Text style={styles.cardNumberDesc}>{`${this.props.cardNumber} Flashcard(s)`}</Text>
+          <Text style={[styles.topicStyle, {color: "#FFF"}]}>{this.props.title}</Text>
+          <Text style={styles.cardCounter}>{`${this.props.cardNumber} Flashcard(s)`}</Text>
         </Animated.View>
       </TouchableOpacity>
     )
@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
       height: 3
     }
   },
-  titleStyle: {
+  topicStyle: {
     fontSize: 25
   },
-  cardNumberDesc: {
+  cardCounter: {
     fontSize: 15,
     color: '#BBB'
   }

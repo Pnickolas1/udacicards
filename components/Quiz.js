@@ -22,10 +22,10 @@ class Quiz extends Component {
         
             return(
                 <View style={styles.container}>
-                    <Text style={styles.counterText}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} </Text>
+                    <Text style={styles.counter}> Question: {this.state.currentQuestion} of {this.props.deck.questions.length} </Text>
                 
                     <View style={styles.mainview}>
-                        <Animated.Text style={[styles.mainFontStyle, { transform: [{ scale: bounceValue }] }]}>
+                        <Animated.Text style={[styles.mainTextStyle, { transform: [{ scale: bounceValue }] }]}>
                             { this.state.currentlyViewing === 'See Question'
                             ? 
                             this.props.deck.questions[this.state.currentQuestion-1].question
@@ -53,8 +53,8 @@ class Quiz extends Component {
                                 currentlyViewing: 'See Question'
                             });
                         }}
-                        style={styles.toggleButton}>
-                        <Text style={styles.toggleButtonText}>
+                        style={styles.toggleBtn}>
+                        <Text style={styles.toggleBtnText}>
                             { this.state.currentlyViewing === 'See Question'
                             ?
                             'See Answer': 'See Question' }
@@ -69,8 +69,8 @@ class Quiz extends Component {
                             currentlyViewing: 'See Question'
                             }))
                         }
-                    style={styles.correctButton}>
-                    <Text style={styles.buttonText}>
+                    style={styles.correctBtn}>
+                    <Text style={styles.buttonTextStyle}>
                     <MaterialCommunityIcons
                         name="thumb-up-outline"
                         size={20}
@@ -85,8 +85,8 @@ class Quiz extends Component {
                             currentlyViewing: 'See Question'
                             })
                         )}
-                            style={styles.incorrectButton}>
-                        <Text style={styles.buttonText}>
+                            style={styles.incorrectBtn}>
+                        <Text style={styles.buttonTextStyle}>
                         <MaterialCommunityIcons
                         name="thumb-down-outline"
                         size={20}
@@ -99,11 +99,11 @@ class Quiz extends Component {
         } else {
             return(
                 <View style={styles.container}>
-                    <Text style={[styles.mainFontStyle, {color: '#1C2841'}]}>Quiz Complete</Text>
-                    <View style={styles.mainView}>
-                        <Text style={[styles.scoreHeading, {color:'#1C2841'}]}> SCORE </Text>
+                    <Text style={[styles.mainTextStyle, {color: '#1C2841'}]}>Quiz Complete</Text>
+                    <View style={styles.mainViews}>
+                        <Text style={[styles.scoreHeader, {color:'#1C2841'}]}> SCORE </Text>
                         <View>
-                            <Text style={styles.score}>{Math.round((this.state.correctScore/  this.props.deck.questions.length) * 100 )} %</Text>
+                            <Text style={styles.scoreBoard}>{Math.round((this.state.correctScore/  this.props.deck.questions.length) * 100 )} %</Text>
                         </View>
                         <Text style={{fontSize: 25, marginTop: 10}}>{ (this.state.correctScore / this.props.deck.questions.length) * 100 > 80 
                         ? 
@@ -120,8 +120,8 @@ class Quiz extends Component {
                                 correctScore: 0
                                 });
                             }}
-                            style={styles.correctButton}>
-                            <Text style={styles.buttonText}>
+                            style={styles.correctBtn}>
+                            <Text style={styles.buttonTextStyle}>
                             <MaterialCommunityIcons
                                 name="rotate-3d"
                                 size={20}
@@ -130,7 +130,7 @@ class Quiz extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
-                            style={styles.backToViewButton}>
+                            style={styles.backToViewsButton}>
                             <Text style={{ fontSize: 20, color: '#c70400' }}>
                             <MaterialCommunityIcons
                                 name="home-outline"
@@ -153,29 +153,29 @@ const styles = StyleSheet.create({
     alignItems:  'center',
     justifyContent: 'center',
   },
-  counterText: {
+  counter: {
     fontSize: 20,
     textAlign: 'center'
   },
-  mainView: {
+  mainViews: {
     flex: 1,
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10
   },
-  mainFontStyle: {
+  mainTextStyle: {
     fontSize: 35,
     textAlign: 'center'
   },
-  toggleButtonText: {
+  toggleBtnText: {
     fontSize: 20,
     color: '#F00'
   },
-  toggleButton: {
+  toggleBtn: {
     marginTop: 20
   },
-  correctButton: {
+  correctBtn: {
     padding: 20,
     borderRadius: 5,
     backgroundColor: '#1C2841',
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  incorrectButton: {
+  incorrectBtn: {
     padding: 20,
     borderRadius: 5,
     backgroundColor: '#c70400',
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  backToViewButton: {
+  backToViewsButton: {
     padding: 20,
     borderRadius: 5,
     borderColor: '#c70400',
@@ -203,14 +203,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  buttonText: {
+  buttonTextStyle: {
     color: '#FFF',
     fontSize: 20
   },
-  scoreHeading: {
+  scoreHeader: {
     fontSize: 30
   },
-  score: {
+  scoreBoard: {
     fontSize: 50,
     color: '#c70400'
   },
