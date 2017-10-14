@@ -2,7 +2,7 @@ import {
   getDecks,
   getDeck,
   saveDeckTitle,
-  addCardToDeck,
+  addFlashcardToDeck,
   removeEntry
 } from '../utils/helpers';
 
@@ -21,13 +21,13 @@ const savedDeckTitle = decks => ({
   decks
 })
 
-export const fetchDecks = () => dispatch => {
+export const fetchAllDecks = () => dispatch => {
   getDecks().then((decks) => {
     dispatch(receiveDecks(JSON.parse(decks)));
   }).catch(err => console.log('Error: ', err));
 }
 
-export const sendDeckTitle = (title) => dispatch => {
+export const submitDeckTitle = (title) => dispatch => {
   saveDeckTitle(title).then(() => {
     getDecks().then((decks) => {
       dispatch(savedDeckTitle(JSON.parse(decks)));
@@ -35,14 +35,15 @@ export const sendDeckTitle = (title) => dispatch => {
   })
 }
 
-export const sendCardToDeck = (title, card) => dispatch => {
-  addCardToDeck(title, card).then(() => {
-    fetchDecks()(dispatch);
+export const sendFlashcardToDeck = (title, card) => dispatch => {
+  addFlashcardToDeck(title, card).then(() => {
+    fetchAllDecks()(dispatch);
   })
 }
 
 export const deleteDeck = (title) => dispatch => {
   removeEntry(title).then(() => {
-    fetchDecks()(dispatch);
+    fetchAllDecks()(dispatch);
   })
 }
+

@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 
 import Deck from './Deck';
 import {
-    fetchDecks
+    fetchAllDecks
 } from '../actions'
 
 class FlashcardDeckList extends Component{
 
     componentDidMount() {
-      this.props.fetchDecks();
+      this.props.fetchAllDecks();
     }
 
 
@@ -80,4 +80,4 @@ function mapStateToProps(state, { navigation }) {
     }
   }
   
-  export default connect(mapStateToProps, { fetchDecks })(FlashcardDeckList);
+  export default connect(mapStateToProps, { fetchAllDecks })(FlashcardDeckList);

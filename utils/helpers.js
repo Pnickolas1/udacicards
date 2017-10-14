@@ -27,7 +27,7 @@ export function saveDeckTitle(title) {
   }))
 }
 
-export function addCardToDeck(title, card) {
+export function addFlashcardToDeck(title, card) {
   return AsyncStorage.getItem(CARD_STORAGE_KEY)
     .then(result => {
       const data = JSON.parse(result);

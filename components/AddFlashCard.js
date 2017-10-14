@@ -7,7 +7,7 @@ import {
     StyleSheet,
     ActivityIndicator
 } from 'react-native';
-import { sendCardToDeck } from '../actions';
+import { sendFlashcardToDeck } from '../actions';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
@@ -47,7 +47,7 @@ class AddFlashcard extends Component {
         //calling actions creator below (actions creators >> reducers >> update state)
     
         if(question !== '' & answer !== ''){
-            this.props.sendCardToDeck(title, {question, answer});
+            this.props.sendFlashcardToDeck(title, {question, answer});
             this.setState({ questionError: '', answerError: '', loading: true})
         }
 
@@ -168,4 +168,4 @@ const styles = StyleSheet.create({
     }
   }
   
-export default connect(mapStateToProps, { sendCardToDeck })(AddFlashcard);
+export default connect(mapStateToProps, { sendFlashcardToDeck })(AddFlashcard);

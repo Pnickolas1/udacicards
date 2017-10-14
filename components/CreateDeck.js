@@ -11,7 +11,7 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
-import { sendDeckTitle } from '../actions';
+import { submitDeckTitle } from '../actions';
 
 class CreateDeck extends Component{
     componentDidUpdate(){
@@ -38,7 +38,7 @@ class CreateDeck extends Component{
         if(this.state.deckTitle !== ''){
 
             // Send Title of Flashcard Deck action creator
-            this.props.sendDeckTitle(this.state.deckTitle);
+            this.props.submitDeckTitle(this.state.deckTitle);
             this.setState({ errorMessage: '', loading: true})
         } else {
             this.setState({ errorMessage: 'Enter a quiz topic!'})
@@ -136,4 +136,4 @@ const styles = StyleSheet.create({
     }
   }
 
-  export default connect(mapStateToProps, { sendDeckTitle })(CreateDeck);
+  export default connect(mapStateToProps, { submitDeckTitle })(CreateDeck);
