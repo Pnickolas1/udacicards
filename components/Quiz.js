@@ -99,9 +99,9 @@ class Quiz extends Component {
         } else {
             return(
                 <View style={styles.container}>
-                    <Text style={styles.mainFontStyle}>Complete</Text>
+                    <Text style={[styles.mainFontStyle, {color: '#1C2841'}]}>Quiz Complete</Text>
                     <View style={styles.mainView}>
-                        <Text style={styles.scoreHeading}> SCORE </Text>
+                        <Text style={[styles.scoreHeading, {color:'#1C2841'}]}> SCORE </Text>
                         <View>
                             <Text style={styles.score}>{Math.round((this.state.correctScore/  this.props.deck.questions.length) * 100 )} %</Text>
                         </View>
