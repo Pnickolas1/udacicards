@@ -17,4 +17,4 @@ https://expo.io/
 2. run `npm start`
 
 
-https://giphy.com/gifs/l4Epgc1hJXpXs9BLO/html5
+<a href="https://media.giphy.com/media/l4Epgc1hJXpXs9BLO/giphy.gif"><img src="https://media.giphy.com/media/l4Epgc1hJXpXs9BLO/giphy.gif" title="React Native iOS App"/></a>
