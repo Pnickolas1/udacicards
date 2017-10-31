@@ -15,3 +15,6 @@ https://expo.io/
 # Installation
 1. Clone this repo and `cd` into project directory and run `npm install`
 2. run `npm start`
+
+
+https://giphy.com/gifs/l4Epgc1hJXpXs9BLO/html5
